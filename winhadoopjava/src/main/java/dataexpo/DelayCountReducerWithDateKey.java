@@ -12,12 +12,12 @@ public class DelayCountReducerWithDateKey extends Reducer<DateKey, IntWritable, 
 	private DateKey outputKey = new DateKey();
 
 	@Override
-	protected void setup(Context context)
+	protected void setup(Context context) // 작업 시작시 한 번 호출된다. 
 			throws IOException, InterruptedException {
 		mos = new MultipleOutputs<DateKey, IntWritable>(context);
 	}
 
-	protected void reduce(DateKey key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+	protected void reduce(DateKey key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException { // 각 키/값 쌍에대해 한번 호출된다
 		String [] columns = key.getYear().split(",");
 		int sum = 0;
 		Integer bMonth = key.getMonth();

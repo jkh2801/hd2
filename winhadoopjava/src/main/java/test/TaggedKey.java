@@ -1,4 +1,4 @@
-package dataexpo;
+package test;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -53,6 +53,11 @@ public class TaggedKey implements WritableComparable<TaggedKey>{
 		int result = this.carrierCode.compareTo(key.carrierCode);
 		if(result  == 0) this.tag.compareTo(key.tag);
 		return result;
+	}
+
+	@Override
+	public String toString() {
+		return  carrierCode + ", " + tag;
 	}
 	
 

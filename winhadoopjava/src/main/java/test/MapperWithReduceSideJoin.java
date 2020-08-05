@@ -1,4 +1,4 @@
-package dataexpo;
+package test;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ public class MapperWithReduceSideJoin extends Mapper<LongWritable, Text, TaggedK
 			throws IOException, InterruptedException {
 		Airline al = new Airline(value); // 비행정보
 		outkey.setCarrierCode(al.getUniqueCarrier());
-		outkey.setTag(0);
+		outkey.setTag(al.getMonth());
 		context.write(outkey, value);
 	}
 

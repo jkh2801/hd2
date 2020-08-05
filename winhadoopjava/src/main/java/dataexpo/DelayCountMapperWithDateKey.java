@@ -12,7 +12,7 @@ public class DelayCountMapperWithDateKey extends Mapper<LongWritable, Text, Date
 	private final static IntWritable one = new IntWritable(1);
 	private DateKey outputKey = new DateKey();
 	@Override
-	protected void map(LongWritable key, Text value, Context context)
+	protected void map(LongWritable key, Text value, Context context) // 입력 스플릿에서 각 키/값 쌍에대해 한번 호출된다.
 			throws IOException, InterruptedException {
 		Airline al = new Airline(value);
 		if (al.isDepartureDelayAvailable()) {
